@@ -3,7 +3,7 @@
 A real-time translation bridge between doctors and patients, powered by Google Gemini AI.
 
 ## 🔗 Live Demo
-[https://your-app-name.vercel.app](https://your-app-name.vercel.app)
+[https://healthcare-translator-two.vercel.app/](https://healthcare-translator-two.vercel.app/)
 
 ## 🚀 Features Implemented
 
@@ -79,7 +79,7 @@ healthcare-translator/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/healthcare-translator.git
+git clone https://github.com/ayush080603/healthcare-translator.git
 cd healthcare-translator
 ```
 
