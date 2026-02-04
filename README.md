@@ -1,36 +1,157 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Healthcare Doctor-Patient Translation Web Application
 
-## Getting Started
+A real-time translation bridge between doctors and patients, powered by Google Gemini AI.
 
-First, run the development server:
+## 🔗 Live Demo
+[https://your-app-name.vercel.app](https://your-app-name.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features Implemented
+
+### ✅ Core Features
+- **Real-Time Translation**: Bidirectional translation between doctor and patient languages
+- **Role-Based Chat**: Clear distinction between Doctor and Patient messages
+- **Audio Recording**: Record and store audio messages with browser MediaRecorder API
+- **Conversation Logging**: All messages persist in Supabase database with timestamps
+- **Search Functionality**: Search through conversation history by keywords
+- **AI-Powered Summary**: Generate medical summaries with key information extraction
+
+### 🎨 UI/UX Features
+- Mobile-responsive design
+- Clean, intuitive chat interface
+- Language selection for both roles
+- Visual role indicators (Doctor 👨‍⚕️ / Patient 🤒)
+- Audio playback in conversation thread
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Next.js 14** (App Router)
+- **React**
+- **Tailwind CSS**
+- **shadcn/ui** components
+
+### Backend
+- **Next.js API Routes**
+- **Supabase** (PostgreSQL database + Storage)
+
+### AI/ML
+- **Google Gemini 2.5 Flash** for translation and summarization
+
+### Deployment
+- **Vercel** (hosting and deployment)
+
+## 🤖 AI Tools & Resources Used
+
+- **GitHub Copilot** - Code completion and boilerplate generation
+- **ChatGPT/Claude** - Architecture planning and debugging assistance
+- **Google Gemini Documentation** - API integration guidance
+- **Supabase Documentation** - Database setup and queries
+- **shadcn/ui** - Pre-built accessible UI components
+
+## 📁 Project Structure
+```
+healthcare-translator/
+├── app/
+│   ├── api/
+│   │   ├── translate/route.js
+│   │   ├── summary/route.js
+│   │   └── messages/route.js
+│   ├── page.js
+│   └── globals.css
+├── components/
+│   ├── ChatInterface.jsx
+│   ├── MessageBubble.jsx
+│   └── AudioRecorder.jsx
+├── lib/
+│   ├── supabase.js
+│   └── gemini.js
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js 18+
+- Gemini API Key
+- Supabase account
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Local Development
 
-## Learn More
+1. Clone the repository:
+```bash
+git clone https://github.com/YOUR_USERNAME/healthcare-translator.git
+cd healthcare-translator
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
+```bash
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Set up environment variables:
+Create `.env.local` file:
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+GEMINI_API_KEY=your_gemini_api_key
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Run development server:
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+5. Open [http://localhost:3000](http://localhost:3000)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⚠️ Known Limitations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Audio Transcription**: Currently stores audio files but doesn't transcribe them automatically (could be enhanced with Web Speech API or Gemini's audio capabilities)
+- **Search**: Basic keyword matching (could be enhanced with fuzzy search or semantic search)
+- **Language Detection**: Manual language selection required (could add auto-detection)
+- **Offline Support**: Requires internet connection for AI features
+- **Browser Compatibility**: Audio recording works best in Chrome/Edge
+
+## 🔮 Future Improvements
+
+Given more time, I would add:
+- **Real-time Transcription**: Automatic speech-to-text for audio messages
+- **Multi-language Support**: Expand beyond current language list
+- **Conversation Export**: Download conversations as PDF/DOCX
+- **Voice Synthesis**: Text-to-speech for translated messages
+- **Advanced Search**: Semantic search with embeddings
+- **User Authentication**: Secure doctor/patient accounts
+- **Conversation Analytics**: Track common symptoms, medications, etc.
+
+## 📊 Database Schema
+
+### Conversations Table
+- `id` (UUID, Primary Key)
+- `created_at` (Timestamp)
+- `doctor_language` (VARCHAR)
+- `patient_language` (VARCHAR)
+
+### Messages Table
+- `id` (UUID, Primary Key)
+- `conversation_id` (UUID, Foreign Key)
+- `created_at` (Timestamp)
+- `sender_role` (VARCHAR: 'doctor' or 'patient')
+- `original_text` (TEXT)
+- `translated_text` (TEXT)
+- `original_language` (VARCHAR)
+- `target_language` (VARCHAR)
+- `audio_url` (TEXT, nullable)
+
+## 🙏 Acknowledgments
+
+- Google Gemini AI for translation and summarization
+- Supabase for database and storage
+- shadcn/ui for beautiful, accessible components
+- Vercel for seamless deployment
+
+## 📝 License
+
+MIT
+
+---
+
+**Developed as a take-home assignment for Nao Medical**
