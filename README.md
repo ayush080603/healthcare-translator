@@ -190,21 +190,6 @@ vercel
 
 ---
 
-## 📝 Assignment Notes
-
-**Time Spent:** ~10 hours  
-**Challenges:**
-- Gemini model name changes (solved by using `gemini-2.5-flash`)
-- Supabase RLS policy configuration
-- Cross-browser audio compatibility
-
-**What I'm Proud Of:**
-- Production-ready app in <12 hours
-- Clean, maintainable code structure
-- Thoughtful UX with error handling
-
----
-
 ## 👨‍💻 Author
 
 **Ayush Sinha**  
