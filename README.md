@@ -5,7 +5,7 @@
 A real-time translation bridge between doctors and patients, powered by Google Gemini AI. Built for **Nao Medical** take-home assignment.
 
 ## 🔗 Live Demo
-**[https://your-app.vercel.app](https://your-app.vercel.app)**
+**[https://healthcare-translator-two.vercel.app/](https://healthcare-translator-two.vercel.app/)**
 
 ---
 
